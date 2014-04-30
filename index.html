@@ -17,8 +17,9 @@
 		<header>
 			<h1>Let's play a little game!</h1>
 			<p>The rules are simple:<br>guess the numbers I've hidden!</p>
-			<div id="hint"></div>
-			<div id="hint2"></div>
+			<div id="result"></div>
+			<p>Red: Correct number & correct position</p>
+			<p>Blue: Correct number</p>
 		</header>
 		<main>
 			<table>
@@ -544,8 +545,7 @@
 			console.log(arvo4);
 			
 			function checkGuess(){
-				var oikeitaNP=0; //numero ja paikka
-				var oikeitaN=0; //vain numero
+				var oikeita=0; //numero ja paikka
 				
 				var guess1=document.getElementById("g"+kierros+"n1").value;//g1: 1 on i:n arvo, jota aina plussataan yhdellä funktion lopussa...
 				var guess2=document.getElementById("g"+kierros+"n2").value;
@@ -554,64 +554,48 @@
 				
 				if(arvo1==guess1)
 				{
-					oikeitaNP++;
+					oikeita++;
+					document.getElementById("g"+kierros+"n1").style.color="red";
 				}
 				if(arvo2==guess2)
 				{
-					oikeitaNP++;
+					oikeita++;
+					document.getElementById("g"+kierros+"n2").style.color="red";
 				}
 				if(arvo3==guess3)
 				{
-					oikeitaNP++;
+					oikeita++;
+					document.getElementById("g"+kierros+"n3").style.color="red";
 				}
 				if(arvo4==guess4)
 				{
-					oikeitaNP++;
+					oikeita++;
+					document.getElementById("g"+kierros+"n4").style.color="red";
 				}
 				
-				if(arvo1==guess2||arvo1==guess3||arvo1==guess4)
-				{
-					oikeitaN++;
+				if(guess1==arvo2||guess1==arvo3||guess1==arvo4){
+					document.getElementById("g"+kierros+"n1").style.color="blue";
+				}
+				if(guess2==arvo1||guess2==arvo3||guess2==arvo4){
+					document.getElementById("g"+kierros+"n2").style.color="blue";
+				}
+				if(guess3==arvo1||guess3==arvo2||guess3==arvo4){
+					document.getElementById("g"+kierros+"n3").style.color="blue";
+				}
+				if(guess4==arvo1||guess4==arvo2||guess4==arvo3){
+					document.getElementById("g"+kierros+"n4").style.color="blue";
 				}
 				
-				if(arvo2==guess1||arvo2==guess3||arvo2==guess4)
-				{
-					oikeitaN++;
-				}
-				
-				if(arvo3==guess1||arvo1==guess2||arvo1==guess4)
-				{
-					oikeitaN++;
-				}
-				
-				if(arvo4==guess1||arvo1==guess2||arvo1==guess3)
-				{
-					oikeitaN++;
-				}
-				
-				if(oikeitaNP===4){
-					document.getElementById("hint2").innerHTML='';
-					document.getElementById("hint").innerHTML='<h1>You Win</h1>';
-					//alert("You Win!");
-				}
-				else{
-					console.log("Oikeita vastauksia oli "+oikeitaNP);
-					//alert("Oikeita vastauksia oli "+oikeitaNP);
-					document.getElementById("hint").innerHTML='Oikeita vastauksia oli '+oikeitaNP;
-					
-					
-					console.log("Oikeita numeroita oli "+oikeitaN);
-					//alert("Oikeita numeroita oli "+oikeitaN);
-					document.getElementById("hint2").innerHTML='Oikeita numeroita oli '+oikeitaN;
+				if(oikeita===4){
+					document.getElementById("result").innerHTML='<h1>You Win</h1>';
 				}
 				
 				kierros=kierros+1;
-				if(kierros===11)
+				if(kierros===11&&!(oikeita===4))
 				{
-					alert("Game Over!");
+					document.getElementById("result").innerHTML='<h1>Game Over</h1>';
 				}
-				oikeitaNP=0;
-				oikeitaN=0;
+				oikeita=0;
 			}
 		</script>
 	</body>

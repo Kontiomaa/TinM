@@ -1,0 +1,618 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<title>Let's play a little game!</title>
+		<script>
+				var arvo1;
+				var arvo2;
+				var arvo3;
+				var arvo4;
+				
+				var kierros=1;
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Let's play a little game!</h1>
+			<p>The rules are simple:<br>guess the numbers I've hidden!</p>
+			<div id="hint"></div>
+			<div id="hint2"></div>
+		</header>
+		<main>
+			<table>
+				<tr>
+					<th>?</th>
+					<th>?</th>
+					<th>?</th>
+					<th>?</th>
+				</tr>
+				<tr id="tenth">
+					<td>
+						<select id="g10n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g10n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g10n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g10n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="ninth">
+					<td>
+						<select id="g9n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g9n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g9n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g9n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="eighth">
+					<td>
+						<select id="g8n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g8n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g8n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g8n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="seventh">
+					<td>
+						<select id="g7n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g7n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g7n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g7n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="sixth">
+					<td>
+						<select id="g6n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g6n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g6n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g6n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="fifth">
+					<td>
+						<select id="g5n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g5n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g5n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g5n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="fourth">
+					<td>
+						<select id="g4n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g4n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g4n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g4n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="third">
+					<td>
+						<select id="g3n1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g3n2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g3n3">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g3n4">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="second">
+					<td>
+						<select id="g2n1" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g2n2" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g2n3" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g2n4" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+				<tr  id="first">
+					<td>
+						<select id="g1n1" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g1n2" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g1n3" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td>
+						<select id="g1n4" class="reset">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</main>
+		<input id="vastaaNappi" type="button" name="vastaa" value="vastaa" onclick="checkGuess();" />
+		<input id="resetNappi" type="button" name="Uusi peli" value="alusta" onclick="location.reload(forceGet);" />
+		<script>
+			arvo1=Math.floor((Math.random()*8)+1);
+			arvo2=Math.floor((Math.random()*8)+1);
+			arvo3=Math.floor((Math.random()*8)+1);
+			arvo4=Math.floor((Math.random()*8)+1);
+
+			console.log(arvo1);
+			console.log(arvo2);
+			console.log(arvo3);
+			console.log(arvo4);
+			
+			function checkGuess(){
+				var oikeitaNP=0; //numero ja paikka
+				var oikeitaN=0; //vain numero
+				
+				var guess1=document.getElementById("g"+kierros+"n1").value;//g1: 1 on i:n arvo, jota aina plussataan yhdellä funktion lopussa...
+				var guess2=document.getElementById("g"+kierros+"n2").value;
+				var guess3=document.getElementById("g"+kierros+"n3").value;
+				var guess4=document.getElementById("g"+kierros+"n4").value;
+				
+				if(arvo1==guess1)
+				{
+					oikeitaNP++;
+				}
+				if(arvo2==guess2)
+				{
+					oikeitaNP++;
+				}
+				if(arvo3==guess3)
+				{
+					oikeitaNP++;
+				}
+				if(arvo4==guess4)
+				{
+					oikeitaNP++;
+				}
+				
+				if(arvo1==guess2||arvo1==guess3||arvo1==guess4)
+				{
+					oikeitaN++;
+				}
+				
+				if(arvo2==guess1||arvo2==guess3||arvo2==guess4)
+				{
+					oikeitaN++;
+				}
+				
+				if(arvo3==guess1||arvo1==guess2||arvo1==guess4)
+				{
+					oikeitaN++;
+				}
+				
+				if(arvo4==guess1||arvo1==guess2||arvo1==guess3)
+				{
+					oikeitaN++;
+				}
+				
+				if(oikeitaNP===4){
+					document.getElementById("hint2").innerHTML='';
+					document.getElementById("hint").innerHTML='<h1>You Win</h1>';
+					//alert("You Win!");
+				}
+				else{
+					console.log("Oikeita vastauksia oli "+oikeitaNP);
+					//alert("Oikeita vastauksia oli "+oikeitaNP);
+					document.getElementById("hint").innerHTML='Oikeita vastauksia oli '+oikeitaNP;
+					
+					
+					console.log("Oikeita numeroita oli "+oikeitaN);
+					//alert("Oikeita numeroita oli "+oikeitaN);
+					document.getElementById("hint2").innerHTML='Oikeita numeroita oli '+oikeitaN;
+				}
+				
+				kierros=kierros+1;
+				if(kierros===11)
+				{
+					alert("Game Over!");
+				}
+				oikeitaNP=0;
+				oikeitaN=0;
+			}
+		</script>
+	</body>
+</html>

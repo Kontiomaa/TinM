@@ -23,10 +23,10 @@
 		<main>
 			<table>
 				<tr>
-					<th>?</th>
-					<th>?</th>
-					<th>?</th>
-					<th>?</th>
+					<th id="answer1">?</th>
+					<th id="answer2">?</th>
+					<th id="answer3">?</th>
+					<th id="answer4">?</th>
 				</tr>
 				<tr id="tenth">
 					<td>
@@ -636,6 +636,13 @@
 				
 				if(correctAnswers===4){
 					document.getElementById("result").innerHTML='<h1>You Win</h1>';
+					
+					document.getElementById("answer1").innerHTML="<th id='answer1'>"+value1+"</th>";
+					document.getElementById("answer2").innerHTML="<th id='answer2'>"+value2+"</th>";
+					document.getElementById("answer3").innerHTML="<th id='answer3'>"+value3+"</th>";
+					document.getElementById("answer4").innerHTML="<th id='answer4'>"+value4+"</th>";
+					
+					document.getElementById("answerButton").disabled=true;
 				}
 				
 				document.getElementById("g"+round+"n1").disabled=true;
@@ -647,6 +654,13 @@
 				if(round===11&&!(correctAnswers===4))
 				{
 					document.getElementById("result").innerHTML='<h1>Game Over</h1>';
+					
+					document.getElementById("answer1").innerHTML="<th id='answer1'>"+value1+"</th>";
+					document.getElementById("answer2").innerHTML="<th id='answer2'>"+value2+"</th>";
+					document.getElementById("answer3").innerHTML="<th id='answer3'>"+value3+"</th>";
+					document.getElementById("answer4").innerHTML="<th id='answer4'>"+value4+"</th>";
+					
+					document.getElementById("answerButton").disabled=true;
 				}
 				
 				if(!(correctAnswers===4) && !(round===11))

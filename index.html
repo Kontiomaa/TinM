@@ -5,12 +5,13 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<title>Let's play a little game!</title>
 		<script>
-				var arvo1;
-				var arvo2;
-				var arvo3;
-				var arvo4;
+				var value1;
+				var value2;
+				var value3;
+				var value4;
 				
-				var kierros=1;
+				var round=1;
+				var i=2;//disable fields
 		</script>
 	</head>
 	<body>
@@ -18,8 +19,6 @@
 			<h1>Let's play a little game!</h1>
 			<p>The rules are simple:<br>guess the numbers I've hidden!</p>
 			<div id="result"></div>
-			<p>Red: Correct number & correct position</p>
-			<p>Blue: Correct number</p>
 		</header>
 		<main>
 			<table>
@@ -531,71 +530,133 @@
 				</tr>
 			</table>
 		</main>
-		<input id="vastaaNappi" type="button" name="vastaa" value="vastaa" onclick="checkGuess();" />
-		<input id="resetNappi" type="button" name="Uusi peli" value="alusta" onclick="location.reload(forceGet);" />
+		<input id="answerButton" type="button" name="answer" value="Answer" onclick="checkGuess();" />
+		<input id="resetButton" type="button" name="NewGame" value="Reset" onclick="location.reload(true);" />
 		<script>
-			arvo1=Math.floor((Math.random()*8)+1);
-			arvo2=Math.floor((Math.random()*8)+1);
-			arvo3=Math.floor((Math.random()*8)+1);
-			arvo4=Math.floor((Math.random()*8)+1);
+			document.getElementById("result").innerHTML="<b style='color:red;'>Red:</b> Correct number & correct position<br><b style='color:blue;'>Blue:</b> Correct number";
+		
+			value1=Math.floor((Math.random()*8)+1);
+			value2=Math.floor((Math.random()*8)+1);
+			value3=Math.floor((Math.random()*8)+1);
+			value4=Math.floor((Math.random()*8)+1);
 
-			console.log(arvo1);
-			console.log(arvo2);
-			console.log(arvo3);
-			console.log(arvo4);
+			console.log(value1);
+			console.log(value2);
+			console.log(value3);
+			console.log(value4);
+
+			while(i<11){
+				document.getElementById("g"+i+"n1").disabled=true;
+				document.getElementById("g"+i+"n2").disabled=true;
+				document.getElementById("g"+i+"n3").disabled=true;
+				document.getElementById("g"+i+"n4").disabled=true;
+				
+				i++;
+			}
 			
 			function checkGuess(){
-				var oikeita=0; //numero ja paikka
+				var correctAnswers=0;
 				
-				var guess1=document.getElementById("g"+kierros+"n1").value;//g1: 1 on i:n arvo, jota aina plussataan yhdellä funktion lopussa...
-				var guess2=document.getElementById("g"+kierros+"n2").value;
-				var guess3=document.getElementById("g"+kierros+"n3").value;
-				var guess4=document.getElementById("g"+kierros+"n4").value;
+				var guess1=document.getElementById("g"+round+"n1").value;
+				var guess2=document.getElementById("g"+round+"n2").value;
+				var guess3=document.getElementById("g"+round+"n3").value;
+				var guess4=document.getElementById("g"+round+"n4").value;
 				
-				if(arvo1==guess1)
+				if(guess1==value1)
 				{
-					oikeita++;
-					document.getElementById("g"+kierros+"n1").style.color="red";
+					correctAnswers++;
+					document.getElementById("g"+round+"n1").style.color="red";
 				}
-				if(arvo2==guess2)
+				else if(guess1==value2&&guess2!=value2)
 				{
-					oikeita++;
-					document.getElementById("g"+kierros+"n2").style.color="red";
+					document.getElementById("g"+round+"n1").style.color="blue";
 				}
-				if(arvo3==guess3)
+				else if(guess1==value3&&guess3!=value3)
 				{
-					oikeita++;
-					document.getElementById("g"+kierros+"n3").style.color="red";
+					document.getElementById("g"+round+"n1").style.color="blue";
 				}
-				if(arvo4==guess4)
+				else if(guess1==value4&&guess4!=value4)
 				{
-					oikeita++;
-					document.getElementById("g"+kierros+"n4").style.color="red";
+					document.getElementById("g"+round+"n1").style.color="blue";
 				}
 				
-				if(guess1==arvo2||guess1==arvo3||guess1==arvo4){
-					document.getElementById("g"+kierros+"n1").style.color="blue";
+				if(guess2==value2)
+				{
+					correctAnswers++;
+					document.getElementById("g"+round+"n2").style.color="red";
 				}
-				if(guess2==arvo1||guess2==arvo3||guess2==arvo4){
-					document.getElementById("g"+kierros+"n2").style.color="blue";
+				else if(guess2==value1&&guess1!=value1)
+				{
+					document.getElementById("g"+round+"n2").style.color="blue";
 				}
-				if(guess3==arvo1||guess3==arvo2||guess3==arvo4){
-					document.getElementById("g"+kierros+"n3").style.color="blue";
+				else if(guess2==value3&&guess3!=value3)
+				{
+					document.getElementById("g"+round+"n2").style.color="blue";
 				}
-				if(guess4==arvo1||guess4==arvo2||guess4==arvo3){
-					document.getElementById("g"+kierros+"n4").style.color="blue";
+				else if(guess2==value4&&guess4!=value4)
+				{
+					document.getElementById("g"+round+"n2").style.color="blue";
 				}
 				
-				if(oikeita===4){
+				if(guess3==value3)
+				{
+					correctAnswers++;
+					document.getElementById("g"+round+"n3").style.color="red";
+				}
+				else if(guess3==value1&&guess1!=value1)
+				{
+					document.getElementById("g"+round+"n3").style.color="blue";
+				}
+				else if(guess3==value2&&guess2!=value2)
+				{
+					document.getElementById("g"+round+"n3").style.color="blue";
+				}
+				else if(guess3==value4&&guess4!=value4)
+				{
+					document.getElementById("g"+round+"n3").style.color="blue";
+				}
+				
+				if(guess4==value4)
+				{
+					correctAnswers++;
+					document.getElementById("g"+round+"n4").style.color="red";
+				}
+				else if(guess4==value1&&guess1!=value1)
+				{
+					document.getElementById("g"+round+"n4").style.color="blue";
+				}
+				else if(guess4==value2&&guess2!=value2)
+				{
+					document.getElementById("g"+round+"n4").style.color="blue";
+				}
+				else if(guess4==value3&&guess3!=value3)
+				{
+					document.getElementById("g"+round+"n4").style.color="blue";
+				}
+				
+				if(correctAnswers===4){
 					document.getElementById("result").innerHTML='<h1>You Win</h1>';
 				}
 				
-				kierros=kierros+1;
-				if(kierros===11&&!(oikeita===4))
+				document.getElementById("g"+round+"n1").disabled=true;
+				document.getElementById("g"+round+"n2").disabled=true;
+				document.getElementById("g"+round+"n3").disabled=true;
+				document.getElementById("g"+round+"n4").disabled=true;
+				
+				round=round+1;
+				if(round===11&&!(correctAnswers===4))
 				{
 					document.getElementById("result").innerHTML='<h1>Game Over</h1>';
 				}
-				oikeita=0;
+				
+				if(!(correctAnswers===4) && !(round===11))
+				{
+					document.getElementById("g"+round+"n1").disabled=false;
+					document.getElementById("g"+round+"n2").disabled=false;
+					document.getElementById("g"+round+"n3").disabled=false;
+					document.getElementById("g"+round+"n4").disabled=false;
+				}
+				correctAnswers=0;
 			}
 		</script>
 	</body>

@@ -20,7 +20,8 @@
 			<p>The rules are simple:<br>guess the numbers I've hidden!</p>
 			<div id="result"></div>
 		</header>
-		<main>
+		<div id="container">
+		<section id="main">
 			<table>
 				<tr>
 					<th id="answer1">?</th>
@@ -529,7 +530,14 @@
 					</td>
 				</tr>
 			</table>
-		</main>
+		</section>
+		<section id="help">
+			<h1>About the game</h1>
+			<p>The objective of the game is to correctly guess the set of four hidden numbers. They are randomly chosen for each game.</p>
+			<p>You proceed from the bottom up. The set may occasionally contain same numbers: 4-1-4-8 for example</p>
+			<p>You get hints either when you choose the correct number and/or when the correct number is in the correct position</p>
+		</section>
+		</div>
 		<input id="answerButton" type="button" name="answer" value="Answer" onclick="checkGuess();" />
 		<input id="resetButton" type="button" name="NewGame" value="Reset" onclick="location.reload(true);" />
 		<script>

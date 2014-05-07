@@ -1,6 +1,6 @@
 body
 {
-	background-color:lightblue;
+	background-color:lightgray;
 }
 header
 {
@@ -9,12 +9,34 @@ header
 	height:180px;
 	text-align:center;
 }
-main
+#container
 {
-	margin:auto;
+	margin-left:36%;
 	height:800px;
-	width:25%;
-	border-style:solid;
+	width:45%;
+}
+#main
+{
+	float:left;
+	width:60%;
+	height:100%;
+	text-align:center;
+	border-radius:5%;
+	box-shadow: 5px 5px 2px #888888;
+	background-color:white;
+}
+#help
+{
+	float:right;
+	/*width:20%;
+	margin-left:auto;*/
+	width:38.5%;
+	border-radius:5%;
+	box-shadow: 5px 5px 2px #888888;
+	background-color:white;
+}
+#help h1
+{
 	text-align:center;
 }
 table
@@ -25,10 +47,12 @@ table
 #answerButton
 {
 	float:right;
-	margin-right:37.3%;
+	margin-right:38%;
+	margin-top:0.5%;
 }
 #resetButton
 {
 	float:left;
-	margin-left:37.3%;
+	margin-left:37%;
+	margin-top:0.5%;
 }

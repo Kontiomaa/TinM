@@ -10,8 +10,9 @@
 				var value3;
 				var value4;
 				
-				var round=1;
-				var i=2;//disable fields
+				var currentRound=1;
+				var fieldDisable=2;//disable fields that are not in use
+				var guessAmount=10;//How many rounds you have to guess
 		</script>
 	</head>
 	<body>
@@ -29,506 +30,26 @@
 					<th id="answer3">?</th>
 					<th id="answer4">?</th>
 				</tr>
-				<tr id="tenth">
-					<td>
-						<select id="g10n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g10n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g10n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g10n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="ninth">
-					<td>
-						<select id="g9n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g9n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g9n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g9n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="eighth">
-					<td>
-						<select id="g8n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g8n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g8n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g8n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="seventh">
-					<td>
-						<select id="g7n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g7n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g7n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g7n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="sixth">
-					<td>
-						<select id="g6n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g6n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g6n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g6n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="fifth">
-					<td>
-						<select id="g5n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g5n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g5n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g5n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="fourth">
-					<td>
-						<select id="g4n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g4n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g4n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g4n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="third">
-					<td>
-						<select id="g3n1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g3n2">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g3n3">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g3n4">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr id="second">
-					<td>
-						<select id="g2n1" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g2n2" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g2n3" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g2n4" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
-				<tr  id="first">
-					<td>
-						<select id="g1n1" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g1n2" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g1n3" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-					<td>
-						<select id="g1n4" class="reset">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-						</select>
-					</td>
-				</tr>
+				<script>
+					var g=10;
+					var n=1;
+					for(var i=0;i<guessAmount;i++){
+						document.write("<tr>");
+						for(var j=0;j<4;j++){
+							document.write("<td>\n<select id='g"+g+"n"+n+"'>\n");
+							for(var k=1;k<9;k++)
+							{
+								document.write("<option value="+k+">"+k+"</option>\n");
+							}
+							document.write("</select></td>\n");
+							n++;
+						}
+						n=1;
+						g--;
+						document.write("</tr>");
+					}
+					g=10;
+				</script>
 			</table>
 		</section>
 		<section id="help">
@@ -541,7 +62,7 @@
 		<input id="answerButton" type="button" name="answer" value="Answer" onclick="checkGuess();" />
 		<input id="resetButton" type="button" name="NewGame" value="Reset" onclick="location.reload(true);" />
 		<script>
-			document.getElementById("result").innerHTML="<b style='color:red;'>Red:</b> Correct number & correct position<br><b style='color:blue;'>Blue:</b> Correct number";
+			document.getElementById("result").innerHTML="<b style='color:#00CC00;'>Green:</b> Correct number & correct position<br><b style='color:#00CCFF;'>Blue:</b> Correct number";
 		
 			value1=Math.floor((Math.random()*8)+1);
 			value2=Math.floor((Math.random()*8)+1);
@@ -553,93 +74,69 @@
 			console.log(value3);
 			console.log(value4);
 
-			while(i<11){
-				document.getElementById("g"+i+"n1").disabled=true;
-				document.getElementById("g"+i+"n2").disabled=true;
-				document.getElementById("g"+i+"n3").disabled=true;
-				document.getElementById("g"+i+"n4").disabled=true;
+			while(fieldDisable<11){
+				document.getElementById("g"+fieldDisable+"n1").disabled=true;
+				document.getElementById("g"+fieldDisable+"n2").disabled=true;
+				document.getElementById("g"+fieldDisable+"n3").disabled=true;
+				document.getElementById("g"+fieldDisable+"n4").disabled=true;
 				
-				i++;
+				fieldDisable++;
 			}
 			
 			function checkGuess(){
 				var correctAnswers=0;
 				
-				var guess1=document.getElementById("g"+round+"n1").value;
-				var guess2=document.getElementById("g"+round+"n2").value;
-				var guess3=document.getElementById("g"+round+"n3").value;
-				var guess4=document.getElementById("g"+round+"n4").value;
+				var guess1=document.getElementById("g"+currentRound+"n1").value;
+				var guess2=document.getElementById("g"+currentRound+"n2").value;
+				var guess3=document.getElementById("g"+currentRound+"n3").value;
+				var guess4=document.getElementById("g"+currentRound+"n4").value;
 				
 				if(guess1==value1)
 				{
 					correctAnswers++;
-					document.getElementById("g"+round+"n1").style.color="red";
+					document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CC00";
+					document.getElementById("g"+currentRound+"n1").style.color="black";
 				}
-				else if(guess1==value2&&guess2!=value2)
+				else if(guess1==value2&&guess2!=value2||guess1==value3&&guess3!=value3||guess1==value4&&guess4!=value4)
 				{
-					document.getElementById("g"+round+"n1").style.color="blue";
-				}
-				else if(guess1==value3&&guess3!=value3)
-				{
-					document.getElementById("g"+round+"n1").style.color="blue";
-				}
-				else if(guess1==value4&&guess4!=value4)
-				{
-					document.getElementById("g"+round+"n1").style.color="blue";
+					document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
+					document.getElementById("g"+currentRound+"n1").style.color="black";
 				}
 				
 				if(guess2==value2)
 				{
 					correctAnswers++;
-					document.getElementById("g"+round+"n2").style.color="red";
+					document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CC00";
+					document.getElementById("g"+currentRound+"n2").style.color="black";
 				}
-				else if(guess2==value1&&guess1!=value1)
+				else if(guess2==value1&&guess1!=value1||guess2==value3&&guess3!=value3||guess2==value4&&guess4!=value4)
 				{
-					document.getElementById("g"+round+"n2").style.color="blue";
-				}
-				else if(guess2==value3&&guess3!=value3)
-				{
-					document.getElementById("g"+round+"n2").style.color="blue";
-				}
-				else if(guess2==value4&&guess4!=value4)
-				{
-					document.getElementById("g"+round+"n2").style.color="blue";
+					document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
+					document.getElementById("g"+currentRound+"n2").style.color="black";
 				}
 				
 				if(guess3==value3)
 				{
 					correctAnswers++;
-					document.getElementById("g"+round+"n3").style.color="red";
+					document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CC00";
+					document.getElementById("g"+currentRound+"n3").style.color="black";
 				}
-				else if(guess3==value1&&guess1!=value1)
+				else if(guess3==value1&&guess1!=value1||guess3==value2&&guess2!=value2||guess3==value4&&guess4!=value4)
 				{
-					document.getElementById("g"+round+"n3").style.color="blue";
-				}
-				else if(guess3==value2&&guess2!=value2)
-				{
-					document.getElementById("g"+round+"n3").style.color="blue";
-				}
-				else if(guess3==value4&&guess4!=value4)
-				{
-					document.getElementById("g"+round+"n3").style.color="blue";
+					document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
+					document.getElementById("g"+currentRound+"n3").style.color="black";
 				}
 				
 				if(guess4==value4)
 				{
 					correctAnswers++;
-					document.getElementById("g"+round+"n4").style.color="red";
+					document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CC00";
+					document.getElementById("g"+currentRound+"n4").style.color="black";
 				}
-				else if(guess4==value1&&guess1!=value1)
+				else if(guess4==value1&&guess1!=value1||guess4==value2&&guess2!=value2||guess4==value3&&guess3!=value3)
 				{
-					document.getElementById("g"+round+"n4").style.color="blue";
-				}
-				else if(guess4==value2&&guess2!=value2)
-				{
-					document.getElementById("g"+round+"n4").style.color="blue";
-				}
-				else if(guess4==value3&&guess3!=value3)
-				{
-					document.getElementById("g"+round+"n4").style.color="blue";
+					document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CCFF";
+					document.getElementById("g"+currentRound+"n4").style.color="black";
 				}
 				
 				if(correctAnswers===4){
@@ -653,13 +150,13 @@
 					document.getElementById("answerButton").disabled=true;
 				}
 				
-				document.getElementById("g"+round+"n1").disabled=true;
-				document.getElementById("g"+round+"n2").disabled=true;
-				document.getElementById("g"+round+"n3").disabled=true;
-				document.getElementById("g"+round+"n4").disabled=true;
+				document.getElementById("g"+currentRound+"n1").disabled=true;
+				document.getElementById("g"+currentRound+"n2").disabled=true;
+				document.getElementById("g"+currentRound+"n3").disabled=true;
+				document.getElementById("g"+currentRound+"n4").disabled=true;
 				
-				round=round+1;
-				if(round===11&&!(correctAnswers===4))
+				currentRound++;
+				if(currentRound===11&&!(correctAnswers===4))
 				{
 					document.getElementById("result").innerHTML='<h1>Game Over</h1>';
 					
@@ -671,12 +168,12 @@
 					document.getElementById("answerButton").disabled=true;
 				}
 				
-				if(!(correctAnswers===4) && !(round===11))
+				if(!(correctAnswers===4) && !(currentRound===11))
 				{
-					document.getElementById("g"+round+"n1").disabled=false;
-					document.getElementById("g"+round+"n2").disabled=false;
-					document.getElementById("g"+round+"n3").disabled=false;
-					document.getElementById("g"+round+"n4").disabled=false;
+					document.getElementById("g"+currentRound+"n1").disabled=false;
+					document.getElementById("g"+currentRound+"n2").disabled=false;
+					document.getElementById("g"+currentRound+"n3").disabled=false;
+					document.getElementById("g"+currentRound+"n4").disabled=false;
 				}
 				correctAnswers=0;
 			}

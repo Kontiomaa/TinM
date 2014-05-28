@@ -1,6 +1,5 @@
 body
 {
-	/*background-color:lightyellow;*/
 	background-color:#E3DEC1;
 }
 header
@@ -8,7 +7,7 @@ header
 	margin:auto;
 	width:25%;
 	min-width:320px;
-	height:180px;
+	height:200px;
 	text-align:center;
 }
 #container
@@ -32,8 +31,6 @@ header
 #help
 {
 	float:right;
-	/*width:20%;
-	margin-left:auto;*/
 	min-width:160px;
 	width:38.5%;
 	background-color:#F2EFE4;
@@ -52,19 +49,32 @@ table
 }
 #buttons
 {
-	min-width:155px;
-	width:60%;
+	min-width:270px;
+	width:26%;
 	margin-top:0.5%;
 	float:left;
-	margin-left:20%
-}
-#answerButton
-{
-	background-color:lightgreen;
-	margin-left:28.5%
+	margin-left:36.5%;
 }
 #resetButton
 {
+	float:left;
 	background-color:lightblue;
-	margin-left:28.5%;
+}
+#easyButton
+{
+	margin-left:5%;
+	float:left;
+	background-color:#FFFF66;
+}
+
+#normalButton
+{
+	margin-right:5%;
+	float:right;
+	background-color:#FFCC66;
+}
+#answerButton
+{
+	float:right;
+	background-color:lightgreen;
 }

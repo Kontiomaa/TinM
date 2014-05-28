@@ -13,6 +13,11 @@
 				var currentRound=1;
 				var fieldDisable=2;//disable fields that are not in use
 				var guessAmount=10;//How many rounds you have to guess
+				//if empty (first time playing) set to easy.
+				var difficulty=sessionStorage.getItem("difficulty");
+				if(!sessionStorage.getItem("difficulty")){
+					sessionStorage.setItem("difficulty", "easy");
+				}
 		</script>
 	</head>
 	<body>
@@ -61,20 +66,25 @@
 		</div>
 		<div id="buttons">
 		<input id="resetButton" type="button" name="NewGame" value="Reset" onclick="location.reload(true);"/>
+		<input id="easyButton" type="button" name="easy" value="Easy" onclick="changeDifficultyEasy();"/>
 		<input id="answerButton" type="button" name="answer" value="Answer" onclick="checkGuess();"/>
+		<input id="normalButton" type="button" name="normal" value="Normal" onclick="changeDifficultyNormal();"/>
 		</div>
 		<script>
+			if("easy"==difficulty)
+			{
+				document.getElementById('easyButton').style.border="solid";
+			}
+			else if("normal"==difficulty)
+			{
+				document.getElementById('normalButton').style.border="solid";
+			}
 			document.getElementById("result").innerHTML="<b style='color:#00CC00;'>Green:</b> Correct number & correct position<br><b style='color:#00CCFF;'>Blue:</b> Correct number";
 		
 			value1=Math.floor((Math.random()*8)+1);
 			value2=Math.floor((Math.random()*8)+1);
 			value3=Math.floor((Math.random()*8)+1);
 			value4=Math.floor((Math.random()*8)+1);
-
-			console.log(value1);
-			console.log(value2);
-			console.log(value3);
-			console.log(value4);
 
 			while(fieldDisable<11){
 				document.getElementById("g"+fieldDisable+"n1").disabled=true;
@@ -85,8 +95,28 @@
 				fieldDisable++;
 			}
 			
+			function changeDifficultyEasy(){
+				difficulty=sessionStorage.getItem("difficulty");
+				if("normal"==difficulty)
+				{
+					sessionStorage.setItem("difficulty", "easy");
+					location.reload(true);
+				}
+			}
+			
+			function changeDifficultyNormal(){
+				difficulty=sessionStorage.getItem("difficulty");
+				if("easy"==difficulty)
+				{
+					sessionStorage.setItem("difficulty", "normal");
+					location.reload(true);
+				}
+			}
+			
 			function checkGuess(){
 				var correctAnswers=0;
+				var correctNumbers=0;
+				difficulty=sessionStorage.getItem("difficulty");
 				
 				var guess1=document.getElementById("g"+currentRound+"n1").value;
 				var guess2=document.getElementById("g"+currentRound+"n2").value;
@@ -96,50 +126,100 @@
 				if(guess1==value1)
 				{
 					correctAnswers++;
-					document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CC00";
-					document.getElementById("g"+currentRound+"n1").style.color="black";
+					if("normal"==difficulty)
+					{
+
+					}
+					else{
+						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CC00";
+						document.getElementById("g"+currentRound+"n1").style.color="black";
+					}
 				}
 				else if(guess1==value2&&guess2!=value2||guess1==value3&&guess3!=value3||guess1==value4&&guess4!=value4)
 				{
-					document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
-					document.getElementById("g"+currentRound+"n1").style.color="black";
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else{
+						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n1").style.color="black";
+					}
 				}
 				
 				if(guess2==value2)
 				{
 					correctAnswers++;
-					document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CC00";
-					document.getElementById("g"+currentRound+"n2").style.color="black";
+					if("normal"==difficulty)
+					{
+
+					}
+					else{
+						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CC00";
+						document.getElementById("g"+currentRound+"n2").style.color="black";
+					}
 				}
 				else if(guess2==value1&&guess1!=value1||guess2==value3&&guess3!=value3||guess2==value4&&guess4!=value4)
 				{
-					document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
-					document.getElementById("g"+currentRound+"n2").style.color="black";
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else{
+						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n2").style.color="black";
+					}
 				}
 				
 				if(guess3==value3)
 				{
 					correctAnswers++;
-					document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CC00";
-					document.getElementById("g"+currentRound+"n3").style.color="black";
+					if("normal"==difficulty)
+					{
+					
+					}
+					else{
+						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CC00";
+						document.getElementById("g"+currentRound+"n3").style.color="black";
+					}
 				}
 				else if(guess3==value1&&guess1!=value1||guess3==value2&&guess2!=value2||guess3==value4&&guess4!=value4)
 				{
-					document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
-					document.getElementById("g"+currentRound+"n3").style.color="black";
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else{
+						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n3").style.color="black";
+					}
 				}
 				
 				if(guess4==value4)
 				{
 					correctAnswers++;
-					document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CC00";
-					document.getElementById("g"+currentRound+"n4").style.color="black";
+					if("normal"==difficulty)
+					{
+
+					}
+					else{
+						document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CC00";
+						document.getElementById("g"+currentRound+"n4").style.color="black";
+					}
 				}
 				else if(guess4==value1&&guess1!=value1||guess4==value2&&guess2!=value2||guess4==value3&&guess3!=value3)
 				{
-					document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CCFF";
-					document.getElementById("g"+currentRound+"n4").style.color="black";
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else{
+						document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n4").style.color="black";
+					}
 				}
+				alert("green: "+correctAnswers+"x");
+				alert("blue: "+correctNumbers+"x");
 				
 				if(correctAnswers===4){
 					document.getElementById("result").innerHTML='<h1>You Win</h1>';

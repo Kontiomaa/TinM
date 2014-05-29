@@ -37,6 +37,7 @@
 		<section id="main">
 			<table>
 				<tr>
+					<th></th>
 					<th id="answer1">?</th>
 					<th id="answer2">?</th>
 					<th id="answer3">?</th>
@@ -46,7 +47,7 @@
 					var g=10;
 					var n=1;
 					for(var i=0;i<guessAmount;i++){
-						document.write("<tr>");
+						document.write("<tr><td><b>"+g+".</b></td>");
 						for(var j=0;j<4;j++){
 							document.write("<td>\n<select id='g"+g+"n"+n+"'>\n");
 							for(var k=1;k<9;k++)

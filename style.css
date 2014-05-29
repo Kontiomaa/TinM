@@ -28,6 +28,10 @@ header
 	box-shadow: 5px 5px 2px #888888;
 	background-color:#F2EFE4;
 }
+#main table
+{
+	font-size:20px;
+}
 #help
 {
 	float:right;

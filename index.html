@@ -5,19 +5,26 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<title>Let's play a little game!</title>
 		<script>
-				var value1;
-				var value2;
-				var value3;
-				var value4;
-				
-				var currentRound=1;
-				var fieldDisable=2;//disable fields that are not in use
-				var guessAmount=10;//How many rounds you have to guess
-				//if empty (first time playing) set to easy.
-				var difficulty=sessionStorage.getItem("difficulty");
-				if(!sessionStorage.getItem("difficulty")){
-					sessionStorage.setItem("difficulty", "easy");
-				}
+			var value1;
+			var value2;
+			var value3;
+			var value4;
+
+			var currentRound=1;
+			var fieldDisable=2;//disable fields that are not in use
+			var guessAmount=10;//How many rounds you have to guess
+			
+			//if empty (first time playing) set to easy.
+			if(!sessionStorage.getItem("difficulty")){
+				sessionStorage.setItem("difficulty", "easy");
+			}
+			//if empty set help off.
+			if(!sessionStorage.getItem("help")){
+				sessionStorage.setItem("help", "no");
+			}
+			
+			var difficulty=sessionStorage.getItem("difficulty");
+			var needHelp=sessionStorage.getItem("help");
 		</script>
 	</head>
 	<body>
@@ -57,18 +64,27 @@
 				</script>
 			</table>
 		</section>
-		<section id="help">
-			<h1>About the game</h1>
-			<p>The objective of the game is to correctly guess the set of four hidden numbers. They are randomly chosen for each game.</p>
-			<p>You proceed from the bottom up. The set may occasionally contain same numbers: 4-1-4-8 for example.</p>
-			<p>You get hints either when you choose the correct number and/or when the correct number is in the correct position</p>
-		</section>
+		<div id="aboutTheGame"></div>
+		<script>
+			difficulty=sessionStorage.getItem("difficulty");
+			if("normal"==difficulty){
+			document.write("<section id='hints'>");
+			document.write("<h1>Hints</h1>");
+				for(var l=10;l>0;l--)
+				{
+					document.write("<b id='h"+l+"'>"+l+".</b><br>");
+				}
+				document.write("<br>");
+			document.write("</section>");
+			}
+		</script>
 		</div>
 		<div id="buttons">
 		<input id="resetButton" type="button" name="NewGame" value="Reset" onclick="location.reload(true);"/>
 		<input id="easyButton" type="button" name="easy" value="Easy" onclick="changeDifficultyEasy();"/>
-		<input id="answerButton" type="button" name="answer" value="Answer" onclick="checkGuess();"/>
 		<input id="normalButton" type="button" name="normal" value="Normal" onclick="changeDifficultyNormal();"/>
+		<input id="answerButton" type="button" name="answer" value="Answer" onclick="checkGuess();"/>
+		<input id="helpButton" type="button" name="help" value="Rules" onclick="checkHelp();"/>
 		</div>
 		<script>
 			if("easy"==difficulty)
@@ -79,6 +95,12 @@
 			{
 				document.getElementById('normalButton').style.border="solid";
 			}
+			
+			if("yes"==needHelp)
+			{
+				document.getElementById("aboutTheGame").innerHTML="<section id='help'>\n<h1>About the game</h1>\n<p>The objective of the game is to correctly guess the set of four hidden numbers. They are randomly chosen for each game.</p>\n<p>You proceed from the bottom up. The set may occasionally contain same numbers: 4-1-4-8 for example.</p>\n<p>You get hints either when you choose the correct number and/or when the correct number is in the correct position</p>\n</section>";
+			}
+				
 			document.getElementById("result").innerHTML="<b style='color:#00CC00;'>Green:</b> Correct number & correct position<br><b style='color:#00CCFF;'>Blue:</b> Correct number";
 		
 			value1=Math.floor((Math.random()*8)+1);
@@ -112,6 +134,19 @@
 					location.reload(true);
 				}
 			}
+			function checkHelp(){
+				var needHelp=sessionStorage.getItem("help");
+				if("no"==needHelp)
+				{
+					document.getElementById("aboutTheGame").innerHTML="<section id='help'>\n<h1>About the game</h1>\n<p>The objective of the game is to correctly guess the set of four hidden numbers. They are randomly chosen for each game.</p>\n<p>You proceed from the bottom up. The set may occasionally contain same numbers: 4-1-4-8 for example.</p>\n<p>You get hints either when you choose the correct number and/or when the correct number is in the correct position</p>\n</section>";
+					sessionStorage.setItem("help", "yes");
+				}
+				else
+				{
+					document.getElementById("aboutTheGame").innerHTML="";
+					sessionStorage.setItem("help", "no");
+				}
+			}
 			
 			function checkGuess(){
 				var correctAnswers=0;
@@ -126,11 +161,8 @@
 				if(guess1==value1)
 				{
 					correctAnswers++;
-					if("normal"==difficulty)
+					if("easy"==difficulty)
 					{
-
-					}
-					else{
 						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CC00";
 						document.getElementById("g"+currentRound+"n1").style.color="black";
 					}
@@ -150,11 +182,8 @@
 				if(guess2==value2)
 				{
 					correctAnswers++;
-					if("normal"==difficulty)
+					if("easy"==difficulty)
 					{
-
-					}
-					else{
 						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CC00";
 						document.getElementById("g"+currentRound+"n2").style.color="black";
 					}
@@ -174,11 +203,8 @@
 				if(guess3==value3)
 				{
 					correctAnswers++;
-					if("normal"==difficulty)
+					if("easy"==difficulty)
 					{
-					
-					}
-					else{
 						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CC00";
 						document.getElementById("g"+currentRound+"n3").style.color="black";
 					}
@@ -198,11 +224,8 @@
 				if(guess4==value4)
 				{
 					correctAnswers++;
-					if("normal"==difficulty)
+					if("easy"==difficulty)
 					{
-
-					}
-					else{
 						document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CC00";
 						document.getElementById("g"+currentRound+"n4").style.color="black";
 					}
@@ -218,8 +241,10 @@
 						document.getElementById("g"+currentRound+"n4").style.color="black";
 					}
 				}
-				alert("green: "+correctAnswers+"x");
-				alert("blue: "+correctNumbers+"x");
+				if("normal"==difficulty)
+				{
+					document.getElementById("h"+currentRound).innerHTML=currentRound+'. <b class="green">'+correctAnswers+'</b> <b class="blue">'+correctNumbers+'</b>';
+				}
 				
 				if(correctAnswers===4){
 					document.getElementById("result").innerHTML='<h1>You Win</h1>';

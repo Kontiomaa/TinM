@@ -37,8 +37,25 @@ header
 	
 	border-radius:5%;
 	box-shadow: 5px 5px 2px #888888;
+	margin-bottom:2%;
 }
 #help h1
+{
+	text-align:center;
+}
+#hints
+{
+	float:right;
+	min-width:160px;
+	width:38.5%;
+	background-color:#F2EFE4;
+	
+	border-radius:5%;
+	box-shadow: 5px 5px 2px #888888;
+	
+	font-size:25px;
+}
+#hints h1
 {
 	text-align:center;
 }
@@ -49,7 +66,7 @@ table
 }
 #buttons
 {
-	min-width:270px;
+	min-width:326.5px;
 	width:26%;
 	margin-top:0.5%;
 	float:left;
@@ -62,19 +79,33 @@ table
 }
 #easyButton
 {
-	margin-left:5%;
+	margin-left:2.5%;
 	float:left;
 	background-color:#FFFF66;
 }
-
 #normalButton
 {
-	margin-right:5%;
-	float:right;
+	margin-left:2.5%;
 	background-color:#FFCC66;
+}
+#helpButton
+{
+	float:right;
+	margin-right:2.5%;
+	background-color:white;
 }
 #answerButton
 {
 	float:right;
 	background-color:lightgreen;
+}
+.green
+{
+	color:#00CC00;
+	margin-left:25%;
+}
+.blue
+{
+	color:#00CCFF;
+	margin-left:25%;
 }

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<title>Let's play a little game!</title>
+		<script src="checkGuess.js"></script> 
 		<script>
 			var value1;
 			var value2;
@@ -20,10 +21,12 @@
 			}
 			//if empty set help off.
 			if(!sessionStorage.getItem("help")){
-				sessionStorage.setItem("help", "no");
+				sessionStorage.setItem("help", "yes");
 			}
 			
+			//current difficulty
 			var difficulty=sessionStorage.getItem("difficulty");
+			//display help
 			var needHelp=sessionStorage.getItem("help");
 		</script>
 	</head>
@@ -47,7 +50,7 @@
 					var g=10;
 					var n=1;
 					for(var i=0;i<guessAmount;i++){
-						document.write("<tr><td><b>"+g+".</b></td>");
+						document.write("<tr id='round"+g+"'><td><b>"+g+".</b></td>");
 						for(var j=0;j<4;j++){
 							document.write("<td>\n<select id='g"+g+"n"+n+"'>\n");
 							for(var k=1;k<9;k++)
@@ -73,7 +76,14 @@
 			document.write("<h1>Hints</h1>");
 				for(var l=10;l>0;l--)
 				{
-					document.write("<b id='h"+l+"'>"+l+".</b><br>");
+					if(l<10)
+					{
+						document.write("<b id='h"+l+"'>0"+l+".</b><br>");
+					}
+					else
+					{
+						document.write("<b id='h"+l+"'>"+l+".</b><br>");
+					}
 				}
 				document.write("<br>");
 			document.write("</section>");
@@ -97,11 +107,15 @@
 				document.getElementById('normalButton').style.border="solid";
 			}
 			
+			//highlighting the first round
+			document.getElementById("round1").style.backgroundColor="#E3DEC1";
+			
 			if("yes"==needHelp)
 			{
 				document.getElementById("aboutTheGame").innerHTML="<section id='help'>\n<h1>About the game</h1>\n<p>The objective of the game is to correctly guess the set of four hidden numbers. They are randomly chosen for each game.</p>\n<p>You proceed from the bottom up. The set may occasionally contain same numbers: 4-1-4-8 for example.</p>\n<p>You get hints either when you choose the correct number and/or when the correct number is in the correct position</p>\n</section>";
+				document.getElementById('helpButton').style.border="solid";
 			}
-				
+			
 			document.getElementById("result").innerHTML="<b style='color:#00CC00;'>Green:</b> Correct number & correct position<br><b style='color:#00CCFF;'>Blue:</b> Correct number";
 		
 			value1=Math.floor((Math.random()*8)+1);
@@ -136,154 +150,19 @@
 				}
 			}
 			function checkHelp(){
-				var needHelp=sessionStorage.getItem("help");
+				needHelp=sessionStorage.getItem("help");
 				if("no"==needHelp)
 				{
 					document.getElementById("aboutTheGame").innerHTML="<section id='help'>\n<h1>About the game</h1>\n<p>The objective of the game is to correctly guess the set of four hidden numbers. They are randomly chosen for each game.</p>\n<p>You proceed from the bottom up. The set may occasionally contain same numbers: 4-1-4-8 for example.</p>\n<p>You get hints either when you choose the correct number and/or when the correct number is in the correct position</p>\n</section>";
 					sessionStorage.setItem("help", "yes");
+					document.getElementById('helpButton').style.border="solid";
 				}
 				else
 				{
 					document.getElementById("aboutTheGame").innerHTML="";
 					sessionStorage.setItem("help", "no");
+					document.getElementById('helpButton').style="";
 				}
-			}
-			
-			function checkGuess(){
-				var correctAnswers=0;
-				var correctNumbers=0;
-				difficulty=sessionStorage.getItem("difficulty");
-				
-				var guess1=document.getElementById("g"+currentRound+"n1").value;
-				var guess2=document.getElementById("g"+currentRound+"n2").value;
-				var guess3=document.getElementById("g"+currentRound+"n3").value;
-				var guess4=document.getElementById("g"+currentRound+"n4").value;
-				
-				if(guess1==value1)
-				{
-					correctAnswers++;
-					if("easy"==difficulty)
-					{
-						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CC00";
-						document.getElementById("g"+currentRound+"n1").style.color="black";
-					}
-				}
-				else if(guess1==value2&&guess2!=value2||guess1==value3&&guess3!=value3||guess1==value4&&guess4!=value4)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else{
-						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n1").style.color="black";
-					}
-				}
-				
-				if(guess2==value2)
-				{
-					correctAnswers++;
-					if("easy"==difficulty)
-					{
-						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CC00";
-						document.getElementById("g"+currentRound+"n2").style.color="black";
-					}
-				}
-				else if(guess2==value1&&guess1!=value1||guess2==value3&&guess3!=value3||guess2==value4&&guess4!=value4)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else{
-						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n2").style.color="black";
-					}
-				}
-				
-				if(guess3==value3)
-				{
-					correctAnswers++;
-					if("easy"==difficulty)
-					{
-						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CC00";
-						document.getElementById("g"+currentRound+"n3").style.color="black";
-					}
-				}
-				else if(guess3==value1&&guess1!=value1||guess3==value2&&guess2!=value2||guess3==value4&&guess4!=value4)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else{
-						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n3").style.color="black";
-					}
-				}
-				
-				if(guess4==value4)
-				{
-					correctAnswers++;
-					if("easy"==difficulty)
-					{
-						document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CC00";
-						document.getElementById("g"+currentRound+"n4").style.color="black";
-					}
-				}
-				else if(guess4==value1&&guess1!=value1||guess4==value2&&guess2!=value2||guess4==value3&&guess3!=value3)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else{
-						document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n4").style.color="black";
-					}
-				}
-				if("normal"==difficulty)
-				{
-					document.getElementById("h"+currentRound).innerHTML=currentRound+'. <b class="green">'+correctAnswers+'</b> <b class="blue">'+correctNumbers+'</b>';
-				}
-				
-				if(correctAnswers===4){
-					document.getElementById("result").innerHTML='<h1>You Win</h1>';
-					
-					document.getElementById("answer1").innerHTML="<th id='answer1'>"+value1+"</th>";
-					document.getElementById("answer2").innerHTML="<th id='answer2'>"+value2+"</th>";
-					document.getElementById("answer3").innerHTML="<th id='answer3'>"+value3+"</th>";
-					document.getElementById("answer4").innerHTML="<th id='answer4'>"+value4+"</th>";
-					
-					document.getElementById("answerButton").disabled=true;
-				}
-				
-				document.getElementById("g"+currentRound+"n1").disabled=true;
-				document.getElementById("g"+currentRound+"n2").disabled=true;
-				document.getElementById("g"+currentRound+"n3").disabled=true;
-				document.getElementById("g"+currentRound+"n4").disabled=true;
-				
-				currentRound++;
-				if(currentRound===11&&!(correctAnswers===4))
-				{
-					document.getElementById("result").innerHTML='<h1>Game Over</h1>';
-					
-					document.getElementById("answer1").innerHTML="<th id='answer1'>"+value1+"</th>";
-					document.getElementById("answer2").innerHTML="<th id='answer2'>"+value2+"</th>";
-					document.getElementById("answer3").innerHTML="<th id='answer3'>"+value3+"</th>";
-					document.getElementById("answer4").innerHTML="<th id='answer4'>"+value4+"</th>";
-					
-					document.getElementById("answerButton").disabled=true;
-				}
-				
-				if(!(correctAnswers===4) && !(currentRound===11))
-				{
-					document.getElementById("g"+currentRound+"n1").disabled=false;
-					document.getElementById("g"+currentRound+"n2").disabled=false;
-					document.getElementById("g"+currentRound+"n3").disabled=false;
-					document.getElementById("g"+currentRound+"n4").disabled=false;
-				}
-				correctAnswers=0;
 			}
 		</script>
 	</body>

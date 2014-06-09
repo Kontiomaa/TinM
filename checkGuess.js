@@ -77,60 +77,9 @@ function checkGuess(){
 	}
 	else
 	{
-		if(guess1Checked===0)
+		if(value1Checked===0)
 		{
-			if(value2Checked===0)
-			{
-				if(guess1==value2)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n1").style.color="black";
-					}
-					value2Checked=1;
-				}
-			}
-			if(value3Checked===0)
-			{
-				if(guess1==value3)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n1").style.color="black";
-					}
-					value3Checked=1;
-				}
-			}
-			if(value4Checked===0)
-			{
-				if(guess1==value4)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n1").style.color="black";
-					}
-					value4Checked=1;
-				}
-			}
-		}
-		if(guess2Checked===0)
-		{
-			if(value1Checked===0)
+			if(guess2Checked===0)
 			{
 				if(guess2==value1)
 				{
@@ -144,44 +93,10 @@ function checkGuess(){
 						document.getElementById("g"+currentRound+"n2").style.color="black";
 					}
 					value1Checked=1;
+					guess2Checked=1;
 				}
 			}
-			if(value3Checked===0)
-			{
-				if(guess2==value3)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n2").style.color="black";
-					}
-					value3Checked=1;
-				}
-			}
-			if(value4Checked===0)
-			{
-				if(guess2==value4)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n2").style.color="black";
-					}
-					value4Checked=1;
-				}
-			}
-		}
-		if(guess3Checked===0)
-		{
-			if(value1Checked===0)
+			if(value1Checked===0&&guess3Checked===0)
 			{
 				if(guess3==value1)
 				{
@@ -195,44 +110,10 @@ function checkGuess(){
 						document.getElementById("g"+currentRound+"n3").style.color="black";
 					}
 					value1Checked=1;
+					guess3Checked=1;
 				}
 			}
-			if(value2Checked===0)
-			{
-				if(guess3==value2)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n3").style.color="black";
-					}
-					value2Checked=1;
-				}
-			}
-			if(value4Checked===0)
-			{
-				if(guess3==value4)
-				{
-					if("normal"==difficulty)
-					{
-						correctNumbers++;
-					}
-					else
-					{
-						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
-						document.getElementById("g"+currentRound+"n3").style.color="black";
-					}
-					value4Checked=1;
-				}
-			}
-		}
-		if(guess4Checked===0)
-		{
-			if(value1Checked===0)
+			if(value1Checked===0&&guess4Checked===0)
 			{
 				if(guess4==value1)
 				{
@@ -246,9 +127,47 @@ function checkGuess(){
 						document.getElementById("g"+currentRound+"n4").style.color="black";
 					}
 					value1Checked=1;
+					guess4Checked=1;
 				}
 			}
-			if(value2Checked===0)
+		}
+		if(value2Checked===0)
+		{
+			if(guess1Checked===0)
+			{
+				if(guess1==value2)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n1").style.color="black";
+					}
+					value2Checked=1;
+					guess1Checked=1;
+				}
+			}
+			if(value2Checked===0&&guess3Checked===0)
+			{
+				if(guess3==value2)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n3").style.color="black";
+					}
+					value2Checked=1;
+					guess3Checked=1;
+				}
+			}
+			if(value2Checked===0&&guess4Checked===0)
 			{
 				if(guess4==value2)
 				{
@@ -262,9 +181,47 @@ function checkGuess(){
 						document.getElementById("g"+currentRound+"n4").style.color="black";
 					}
 					value2Checked=1;
+					guess4Checked=1;
 				}
 			}
-			if(value3Checked===0)
+		}
+		if(value3Checked===0)
+		{
+			if(guess1Checked===0)
+			{
+				if(guess1==value3)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n1").style.color="black";
+					}
+					value3Checked=1;
+					guess1Checked=1;
+				}
+			}
+			if(value3Checked===0&&guess2Checked===0)
+			{
+				if(guess2==value3)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n2").style.color="black";
+					}
+					value3Checked=1;
+					guess2Checked=1;
+				}
+			}
+			if(value3Checked===0&&guess4Checked===0)
 			{
 				if(guess4==value3)
 				{
@@ -278,6 +235,61 @@ function checkGuess(){
 						document.getElementById("g"+currentRound+"n4").style.color="black";
 					}
 					value3Checked=1;
+					guess4Checked=1;
+				}
+			}
+		}
+		if(value4Checked===0)
+		{
+			if(guess1Checked===0)
+			{
+				if(guess1==value4)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n1").style.color="black";
+					}
+					value4Checked=1;
+					guess1Checked=1;
+				}
+			}
+			if(value4Checked===0&&guess2Checked===0)
+			{
+				if(guess2==value4)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n2").style.color="black";
+					}
+					value4Checked=1;
+					guess2Checked=1;
+				}
+			}
+			if(value4Checked===0&&guess3Checked===0)
+			{
+				if(guess3==value4)
+				{
+					if("normal"==difficulty)
+					{
+						correctNumbers++;
+					}
+					else
+					{
+						document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CCFF";
+						document.getElementById("g"+currentRound+"n3").style.color="black";
+					}
+					value4Checked=1;
+					guess3Checked=1;
 				}
 			}
 		}

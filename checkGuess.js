@@ -24,7 +24,7 @@ function checkGuess(){
 		correctAnswers++;
 		if("easy"==difficulty)
 		{
-			document.getElementById("g"+currentRound+"n1").style.backgroundColor="#00CC00";
+			document.getElementById("g"+currentRound+"n1").style.backgroundColor="#33CC33";
 			document.getElementById("g"+currentRound+"n1").style.color="black";
 		}
 		value1Checked=1;
@@ -35,7 +35,7 @@ function checkGuess(){
 		correctAnswers++;
 		if("easy"==difficulty)
 		{
-			document.getElementById("g"+currentRound+"n2").style.backgroundColor="#00CC00";
+			document.getElementById("g"+currentRound+"n2").style.backgroundColor="#33CC33";
 			document.getElementById("g"+currentRound+"n2").style.color="black";
 		}
 		value2Checked=1;
@@ -46,7 +46,7 @@ function checkGuess(){
 		correctAnswers++;
 		if("easy"==difficulty)
 		{
-			document.getElementById("g"+currentRound+"n3").style.backgroundColor="#00CC00";
+			document.getElementById("g"+currentRound+"n3").style.backgroundColor="#33CC33";
 			document.getElementById("g"+currentRound+"n3").style.color="black";
 		}
 		value3Checked=1;
@@ -57,7 +57,7 @@ function checkGuess(){
 		correctAnswers++;
 		if("easy"==difficulty)
 		{
-			document.getElementById("g"+currentRound+"n4").style.backgroundColor="#00CC00";
+			document.getElementById("g"+currentRound+"n4").style.backgroundColor="#33CC33";
 			document.getElementById("g"+currentRound+"n4").style.color="black";
 		}
 		value4Checked=1;
@@ -67,7 +67,8 @@ function checkGuess(){
 	if(correctAnswers===4)
 	{
 		document.getElementById("result").innerHTML='<h1>You Win</h1>';
-
+		document.getElementById("round"+currentRound).style.backgroundColor="#33CC33";
+		
 		document.getElementById("answer1").innerHTML="<th id='answer1'>"+value1+"</th>";
 		document.getElementById("answer2").innerHTML="<th id='answer2'>"+value2+"</th>";
 		document.getElementById("answer3").innerHTML="<th id='answer3'>"+value3+"</th>";

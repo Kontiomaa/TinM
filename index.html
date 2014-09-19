@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link href="style.css" rel="stylesheet" type="text/css">
-		<title>Let's play a little game!</title>
+		<title>Guess the combination!</title>
 		<script src="checkGuess.js"></script> 
 		<script>
 			var value1;
@@ -32,8 +32,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Let's play a little game!</h1>
-			<p>The rules are simple:<br>guess the numbers I've hidden!</p>
+			<h2>Guess the correct combination I've hidden!</h2>
 			<div id="result"></div>
 		</header>
 		<div id="container">
@@ -115,7 +114,7 @@
 				document.getElementById('helpButton').style.border="solid";
 			}
 			
-			document.getElementById("result").innerHTML="<b style='color:#00CC00;'>Green:</b> Correct number & correct position<br><b style='color:#00CCFF;'>Blue:</b> Correct number";
+			document.getElementById("result").innerHTML="<b style='color:#33CC33;'>Green:</b> Correct number & correct position<br><b style='color:#00CCFF;'>Blue:</b> Correct number";
 		
 			value1=Math.floor((Math.random()*8)+1);
 			value2=Math.floor((Math.random()*8)+1);
